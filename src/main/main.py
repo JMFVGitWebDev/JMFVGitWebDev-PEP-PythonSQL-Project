@@ -73,6 +73,7 @@ def load_and_clean_users(file_path):
 
     # Commit changes and close the connection
     conn.commit()
+    conn.close()
 
     print("TODO: load_users")
 
