@@ -88,7 +88,7 @@ def load_and_clean_users(file_path):
         #    print(formatted_query)
 
 
-        for row in reader:
+        for row in clean_records:
             cursor.execute(insert_sql, row)
 
     # Commit changes and close the connection
