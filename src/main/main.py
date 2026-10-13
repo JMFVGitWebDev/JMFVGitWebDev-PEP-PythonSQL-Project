@@ -60,12 +60,12 @@ def load_and_clean_users(file_path):
             header = next(reader)
         except StopIteration:
             header = []  # or handle empty file case (e.g., raise a custom message or skip)
-            #print("The CSV file is empty.")#header = next(reader)  # Skip the header row if present
+            print("The CSV file is empty.") #header = next(reader)  # Skip the header row if present
 
         clean_records = []
         for row in reader:
             # Discard records with missing columns or empty strings/None values
-            if len(row) > len(header) and all(cell.strip() for cell in row):
+            if len(row) == len(header) and all(cell.strip() for cell in row):
                 clean_records.append(row)
         
         print(len(header))
