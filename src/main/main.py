@@ -91,6 +91,14 @@ def load_and_clean_users(file_path):
         for row in clean_records:
             cursor.execute(insert_sql, row)
 
+        cursor.execute('''SELECT * FROM users''') 
+
+        rows = cursor.fetchall()
+
+        # 3. Loop through and print each row
+        for row in rows:
+            print(row)   
+
     # Commit changes and close the connection
     conn.commit()
     #conn.close()
