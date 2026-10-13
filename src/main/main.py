@@ -93,11 +93,15 @@ def load_and_clean_users(file_path):
 
         cursor.execute('''SELECT * FROM users''') 
 
+        results = self.cursor.fetchall()
+        num_records = len(results)
+        print(num_records)
+
         rows = cursor.fetchall()
 
         # 3. Loop through and print each row
-        for row in rows:
-            print(row)   
+        #for row in rows:
+            #print(row)   
 
     # Commit changes and close the connection
     conn.commit()
