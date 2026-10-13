@@ -45,7 +45,7 @@ def main():
 
     # Close the cursor and connection. main function ends here.
     cursor.close()
-    #conn.close()
+    conn.close()
 
 
 # TODO: Implement the following 4 functions. The functions must pass the unit tests to complete the project.
@@ -77,7 +77,7 @@ def load_and_clean_users(file_path):
 
     # Commit changes and close the connection
     conn.commit()
-    conn.close()
+    #conn.close()
 
     print("TODO: load_users")
 
