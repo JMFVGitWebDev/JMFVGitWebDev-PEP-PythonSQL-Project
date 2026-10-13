@@ -54,9 +54,9 @@ def main():
 # This function will load the users.csv file into the users table, discarding any records with incomplete data
 def load_and_clean_users(file_path):
 
-    print(file_path)
+    #print(file_path)
 
-    with open(file_path, mode='r', encoding='utf-8') as file:
+    with open('/home/ubuntu/JMFVGitWebDev-PEP-PythonSQL-Project/resources/users.csv', mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
         try:
             header = next(reader)
