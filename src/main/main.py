@@ -73,10 +73,9 @@ def load_and_clean_users(file_path):
                 id_number = id_number + 1
                 clean_records.append(row)
         
-        #print(header)
+        print(clean_records)
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * (len(header) + 1))
-        print(placeholders)
         cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
 
         #print(insert_sql)
