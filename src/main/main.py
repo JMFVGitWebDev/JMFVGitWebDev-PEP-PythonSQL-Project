@@ -54,6 +54,26 @@ def main():
 # This function will load the users.csv file into the users table, discarding any records with incomplete data
 def load_and_clean_users(file_path):
 
+    with open('/resources/users.csv', mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        header = next(reader)  # Skip the header row if present
+
+    clean_records = []
+    for row in reader:
+        # Discard records with missing columns or empty strings/None values
+        if len(row) == len(header) and all(cell.strip() for cell in row):
+            clean_records.append(row)
+
+  # Create placeholders (?, ?, ...) based on column count
+  placeholders = ', '.join(['?'] * len(header))
+  insert_sql = f'INSERT INTO users ({", ".join(header)}) VALUES ({placeholders})'
+
+  for row in reader:
+    cursor.execute(insert_sql, row)
+
+# Commit changes and close the connection
+conn.commit()
+
     print("TODO: load_users")
 
 
