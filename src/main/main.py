@@ -76,20 +76,20 @@ def load_and_clean_users(file_path):
         #print(clean_records)
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * 3)
-        cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
+        #cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
         insert_sql = f"INSERT INTO users VALUES ({placeholders})"
 
         #print(insert_sql)
 
-        query = "INSERT INTO users VALUES (%s, %s, %s)"
+        #query = "INSERT INTO users VALUES (%s, %s, %s)"
 
-        for params in clean_records:
-            formatted_query = query % params  # or use .format() / f-strings depending on syntax
-            print(formatted_query)
+        #for params in clean_records:
+        #    formatted_query = query % params  # or use .format() / f-strings depending on syntax
+        #    print(formatted_query)
 
 
-        #for row in reader:
-            #cursor.execute(insert_sql, row)
+        for row in reader:
+            cursor.execute(insert_sql, row)
 
     # Commit changes and close the connection
     conn.commit()
