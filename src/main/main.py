@@ -73,9 +73,9 @@ def load_and_clean_users(file_path):
         #print(header)
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * len(header))
-        insert_sql = f'INSERT INTO users ({", ".join(header)}) VALUES ({placeholders})'
+        cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
 
-        print(insert_sql)
+        #print(insert_sql)
 
         for row in reader:
             cursor.execute(insert_sql, row)
