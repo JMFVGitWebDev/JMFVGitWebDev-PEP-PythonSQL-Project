@@ -67,7 +67,8 @@ def load_and_clean_users(file_path):
             # Discard records with missing columns or empty strings/None values
             if len(row) > len(header) and all(cell.strip() for cell in row):
                 clean_records.append(row)
-
+        
+        print(len(clean_records))
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * len(header))
         insert_sql = f'INSERT INTO users ({", ".join(header)}) VALUES ({placeholders})'
