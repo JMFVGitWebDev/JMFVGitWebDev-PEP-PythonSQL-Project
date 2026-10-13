@@ -56,7 +56,11 @@ def load_and_clean_users(file_path):
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
-        header = next(reader)  # Skip the header row if present
+        try:
+            header = next(reader)
+        except StopIteration:
+            header = []  # or handle empty file case (e.g., raise a custom message or skip)
+            #print("The CSV file is empty.")#header = next(reader)  # Skip the header row if present
 
     clean_records = []
     for row in reader:
