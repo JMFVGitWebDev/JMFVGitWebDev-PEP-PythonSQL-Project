@@ -75,9 +75,9 @@ def load_and_clean_users(file_path):
         for row in reader:
             cursor.execute(insert_sql, row)
 
-    # Commit changes and close the connection
-    conn.commit()
-    conn.close()
+        # Commit changes and close the connection
+        conn.commit()
+        conn.close()
 
     print("TODO: load_users")
 
