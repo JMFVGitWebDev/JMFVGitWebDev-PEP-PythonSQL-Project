@@ -70,7 +70,6 @@ def load_and_clean_users(file_path):
             # Discard records with missing columns or empty strings/None values
             if len(row) == len(header) and all(cell.strip() for cell in row):
                 row.append(id_number)
-                print(row)
                 id_number = id_number + 1
                 clean_records.append(row)
         
