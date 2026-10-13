@@ -65,7 +65,7 @@ def load_and_clean_users(file_path):
         clean_records = []
         for row in reader:
             # Discard records with missing columns or empty strings/None values
-            if len(row) == len(header) and all(cell.strip() for cell in row):
+            if len(row) > len(header) and all(cell.strip() for cell in row):
                 clean_records.append(row)
 
         # Create placeholders (?, ?, ...) based on column count
