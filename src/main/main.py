@@ -45,7 +45,7 @@ def main():
 
     # Close the cursor and connection. main function ends here.
     cursor.close()
-    conn.close()
+    #conn.close()
 
 
 # TODO: Implement the following 4 functions. The functions must pass the unit tests to complete the project.
