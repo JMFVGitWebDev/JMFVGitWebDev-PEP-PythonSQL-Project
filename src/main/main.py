@@ -172,6 +172,7 @@ def load_and_clean_call_logs(file_path):
         for row in reader:
             # Reorder row dictionary values to match table_schema
             reordered_values = [clean_records[col] for col in callLogs_schema]
+            print(reordered_values)
             records_to_insert.append(reordered_values)
 
         # Execute bulk insert
