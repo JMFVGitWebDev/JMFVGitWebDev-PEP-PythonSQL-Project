@@ -87,7 +87,7 @@ def load_and_clean_users(file_path):
         #    formatted_query = query % params  # or use .format() / f-strings depending on syntax
         #    print(formatted_query)
 
-        print(clean_records[0][1])
+        print(clean_records[0][0])
 
         for row in clean_records:
             for x in row:
