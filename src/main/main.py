@@ -79,7 +79,7 @@ def load_and_clean_users(file_path):
         #cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
         insert_sql = f"INSERT INTO users VALUES ({placeholders})"
 
-        print(insert_sql)
+        #print(insert_sql)
 
         #query = "INSERT INTO users VALUES (%s, %s, %s)"
 
@@ -89,6 +89,7 @@ def load_and_clean_users(file_path):
 
 
         for row in clean_records:
+            print(row)
             cursor.execute(insert_sql, row)
 
         cursor.execute('''SELECT * FROM users''') 
