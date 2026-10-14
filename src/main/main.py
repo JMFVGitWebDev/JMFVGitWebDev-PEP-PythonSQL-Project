@@ -164,7 +164,7 @@ def load_and_clean_call_logs(file_path):
         #insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
 
         insert_query = f"""
-        INSERT INTO my_table ({', '.join(callLogs_schema)})
+        INSERT INTO callLogs ({', '.join(callLogs_schema)})
         VALUES ({', '.join(['?'] * len(callLogs_schema))})
         """
     
