@@ -253,8 +253,8 @@ def write_user_analytics(csv_file_path):
     
         # Write all data rows at once
 
-        for row in rows:
-            print(row)
+        #for row in rows:
+            #print(row)
         #writer.writerows(rows)   
 
 
