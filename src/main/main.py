@@ -173,7 +173,7 @@ def load_and_clean_call_logs(file_path):
     
         # 3. Get the indices corresponding to the target schema order
         # This raises a KeyError if a schema column is missing from the CSV
-        schema_indices = [header_index_map[col] for col in table_schema]
+        schema_indices = [header_index_map[col] for col in callLogs_schema]
     
         # 4. Iterate through rows and reorder values to match the schema
         for row in reader:
