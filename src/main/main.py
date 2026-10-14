@@ -68,7 +68,7 @@ def load_and_clean_users(file_path):
         id_number = 0
         for row in reader:
             # Discard records with missing columns or empty strings/None values
-            if len(row) != len(header) or (!(all(cell.strip() for cell in row))):
+            if len(row) != len(header) or (not(all(cell.strip() for cell in row))):
                 #row.insert(0, id_number)
                 id_number = id_number + 1
                 clean_records.append(row)
