@@ -134,13 +134,14 @@ def load_and_clean_call_logs(file_path):
     cursor.execute(f"PRAGMA table_info('callLogs');")
     columns = cursor.fetchall()
     callLogs_schema = []
+    callLogs_fieldtypes = []
     reordered_records = []
 
     for column in columns:
-        print(column)
+        callLogs_fieldtypes.append(column[2])
         callLogs_schema.append(column[1])
 
-    
+    print(callLogs_fieldtypes)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -177,6 +178,8 @@ def load_and_clean_call_logs(file_path):
         #print(header_index_map)
         #print(callLogs_schema)
     
+        #for i, record in enumerate(clean_records):
+                #if record[i]
         
         # This raises a KeyError if a schema column is missing from the CSV
         schema_indices = [header_index_map[col] for col in callLogs_schema]
