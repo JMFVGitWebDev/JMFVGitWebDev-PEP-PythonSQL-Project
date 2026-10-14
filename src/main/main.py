@@ -105,7 +105,9 @@ def load_and_clean_users(file_path):
                 #print(row)
                 #cursor.execute(insert_sql, row)
 
-        print(clean_records)
+        for row in clean_records:
+            cursor.execute(insert_sql, row)
+        #print(clean_records)
 
         cursor.execute('''SELECT * FROM users''') 
 
