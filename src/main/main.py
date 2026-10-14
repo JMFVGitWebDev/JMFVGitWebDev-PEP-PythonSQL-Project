@@ -138,7 +138,7 @@ def load_and_clean_call_logs(file_path):
     for column in columns:
         callLogs_schema.append(column[1])
 
-    #print(callLogs_schema)
+    print(callLogs_schema)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -167,14 +167,15 @@ def load_and_clean_call_logs(file_path):
         INSERT INTO callLogs ({', '.join(callLogs_schema)})
         VALUES ({', '.join(['?'] * len(callLogs_schema))})
         """
-    
+        print(header)
+
         records_to_insert = []
         for row in reader:
             # Reorder row dictionary values to match table_schema
             reordered_values = [row[col] for col in callLogs_schema]
             records_to_insert.append(reordered_values)
 
-        print(records_to_insert)
+        #print(records_to_insert)
 
         # Execute bulk insert
         cursor.executemany(insert_query, records_to_insert)
