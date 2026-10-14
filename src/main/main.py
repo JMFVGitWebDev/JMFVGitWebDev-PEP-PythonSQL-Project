@@ -292,7 +292,7 @@ def write_ordered_calls(csv_file_path):
             for line in file:
                 ordered_calls.append(line.strip().split(','))
 
-    print(ordered_calls[0][4])
+    print(ordered_calls[0])
     print("TODO: write_ordered_calls")
 
 
