@@ -173,6 +173,7 @@ def load_and_clean_call_logs(file_path):
         header_index_map = {name: idx for idx, name in enumerate(header)}
 
         print(header_index_map)
+        print(callLogs_schema)
     
         # 3. Get the indices corresponding to the target schema order
         # This raises a KeyError if a schema column is missing from the CSV
