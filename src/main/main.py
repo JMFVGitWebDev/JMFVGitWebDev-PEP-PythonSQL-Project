@@ -131,6 +131,42 @@ def load_and_clean_users(file_path):
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
 def load_and_clean_call_logs(file_path):
 
+    with open(file_path, mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        try:
+            header = next(reader)
+        except StopIteration:
+            header = []  # or handle empty file case (e.g., raise a custom message or skip)
+            print("The CSV file is empty.") #header = next(reader)  # Skip the header row if present
+
+        clean_records = []
+        id_number = 0
+        for row in reader:
+            # Discard records with missing columns or empty strings/None values
+            if len(row) == len(header) and all(cell.strip() for cell in row):
+                row.insert(0, id_number)
+                id_number = id_number + 1
+                clean_records.append(row)
+        
+        #print(len(clean_records))
+        # Create placeholders (?, ?, ...) based on column count
+        placeholders = ', '.join(['?'] * len(header))
+        #cursor.executemany(f"INSERT INTO users VALUES ({placeholders})", clean_records)
+        insert_sql = f"INSERT INTO users VALUES ({placeholders})"
+
+        #print(insert_sql)
+
+        #query = "INSERT INTO users VALUES (%s, %s, %s)"
+
+        #for params in clean_records:
+        #    formatted_query = query % params  # or use .format() / f-strings depending on syntax
+        #    print(formatted_query)
+
+        #print(clean_records[0][0])
+
+        for row in clean_records:
+            cursor.execute(insert_sql, row)
+
     print("TODO: load_call_logs")
 
 
