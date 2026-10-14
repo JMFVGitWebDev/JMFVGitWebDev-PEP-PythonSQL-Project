@@ -180,12 +180,12 @@ def load_and_clean_call_logs(file_path):
         # This raises a KeyError if a schema column is missing from the CSV
         schema_indices = [header_index_map[col] for col in callLogs_schema]
 
-        file.seek(0)
+        #file.seek(0)
         #Iterate through rows and reorder values to match the schema
-        for i, row in enumerate(reader):
-            print(i)
+        for record in clean_records: #for i, row in enumerate(reader):
+            #print(i)
             # Reorder row elements based on the target schema
-            reordered_row = [row[i] for i in schema_indices]
+            reordered_row = [record[i] for i in schema_indices]
             reordered_records.append(reordered_row)
 
         print(reordered_records)
