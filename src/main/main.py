@@ -294,8 +294,8 @@ def write_ordered_calls(csv_file_path):
                 i = i + 1
                 #print(line)
                 ordered_calls.append(line.strip().split(','))
-                if i == len(rows):
-                    break
+                #if i == len(rows):
+                   # break
                 
 
     print(len(ordered_calls))
