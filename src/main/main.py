@@ -182,6 +182,7 @@ def load_and_clean_call_logs(file_path):
     
         #Iterate through rows and reorder values to match the schema
         for i, row in enumerate(reader):
+            print(i)
             # Reorder row elements based on the target schema
             reordered_row = [row[i] for i in schema_indices]
             reordered_records.append(reordered_row)
