@@ -161,7 +161,22 @@ def load_and_clean_call_logs(file_path):
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * (len(header) + 1))
         #cursor.executemany(f"INSERT INTO callLogs VALUES ({placeholders})", clean_records)
-        insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
+        #insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
+
+        insert_query = f"""
+        INSERT INTO my_table ({', '.join(callLogs_schema)})
+        VALUES ({', '.join(['?'] * len(callLogs_schema))})
+        """
+    
+        records_to_insert = []
+        for row in reader:
+            # Reorder row dictionary values to match table_schema
+            reordered_values = [row[col] for col in callLogs_schema]
+            records_to_insert.append(reordered_values)
+
+        # Execute bulk insert
+        cursor.executemany(insert_query, records_to_insert)
+        conn.commit()
 
         #print(insert_sql)
 
@@ -173,8 +188,8 @@ def load_and_clean_call_logs(file_path):
 
         #print(clean_records[0][0])
 
-        for row in clean_records:
-            cursor.execute(insert_sql, row)
+        #for row in clean_records:
+            #cursor.execute(insert_sql, row)
 
     print("TODO: load_call_logs")
 
