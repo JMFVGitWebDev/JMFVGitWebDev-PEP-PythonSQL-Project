@@ -237,7 +237,7 @@ def write_user_analytics(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    print(rows[1])
+    #print(rows[1])
 
     #print(type(rows))
 
@@ -253,9 +253,9 @@ def write_user_analytics(csv_file_path):
     
         # Write all data rows at once
 
-        #for row in rows:
+        for row in rows:
             #print(row)
-        #writer.writerows(rows)   
+            writer.writerow(row)   
 
 
     print("TODO: write_user_analytics")
