@@ -142,7 +142,7 @@ def load_and_clean_call_logs(file_path):
     #print(callLogs_schema)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
-        reader = list(csv.reader(file))
+        reader = csv.reader(file)
         try:
             header = next(reader)
         except StopIteration:
@@ -179,7 +179,8 @@ def load_and_clean_call_logs(file_path):
         
         # This raises a KeyError if a schema column is missing from the CSV
         schema_indices = [header_index_map[col] for col in callLogs_schema]
-    
+
+        file.seek(0)
         #Iterate through rows and reorder values to match the schema
         for i, row in enumerate(reader):
             print(i)
