@@ -167,9 +167,11 @@ def load_and_clean_call_logs(file_path):
         INSERT INTO callLogs ({', '.join(callLogs_schema)})
         VALUES ({', '.join(['?'] * len(callLogs_schema))})
         """
-        print(type(header))
+        #print(type(header))
 
         header_index_map = {name: idx for idx, name in enumerate(header)}
+
+        print(header_index_map)
     
         # 3. Get the indices corresponding to the target schema order
         # This raises a KeyError if a schema column is missing from the CSV
