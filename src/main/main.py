@@ -91,7 +91,7 @@ def load_and_clean_users(file_path):
 
         for row in clean_records:
             for item in row:
-                print(row[item])
+                #print(row[item])
                 if isinstance(row[item], str) and "####" in row[item]:
                     print(item)
                     pass
