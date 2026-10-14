@@ -87,10 +87,11 @@ def load_and_clean_users(file_path):
         #    formatted_query = query % params  # or use .format() / f-strings depending on syntax
         #    print(formatted_query)
 
-        print(clean_records[0][0])
+        #print(clean_records[0][0])
 
         for row in clean_records:
             for x in row:
+                print(type(x))
                 if row[x] is None or len(row[x]) == 0:
                     row.pop(x)
                 #print(row)
