@@ -138,7 +138,7 @@ def load_and_clean_call_logs(file_path):
     for column in columns:
         callLogs_schema.append(column[1])
 
-    print(callLogs_schema)
+    #print(callLogs_schema)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -167,7 +167,23 @@ def load_and_clean_call_logs(file_path):
         INSERT INTO callLogs ({', '.join(callLogs_schema)})
         VALUES ({', '.join(['?'] * len(callLogs_schema))})
         """
-        print(header)
+        #print(header)
+
+        header_index_map = {name: idx for idx, name in enumerate(headers)}
+    
+        # 3. Get the indices corresponding to the target schema order
+        # This raises a KeyError if a schema column is missing from the CSV
+        schema_indices = [header_index_map[col] for col in table_schema]
+    
+        # 4. Iterate through rows and reorder values to match the schema
+        for row in reader:
+            # Reorder row elements based on the target schema
+            reordered_row = [row[i] for i in schema_indices]
+            reordered_records.append(reordered_row)
+
+        # Example output of reordered records ready for SQL insertion
+        for record in reordered_records:
+            print(record)
 
         records_to_insert = []
         for row in reader:
