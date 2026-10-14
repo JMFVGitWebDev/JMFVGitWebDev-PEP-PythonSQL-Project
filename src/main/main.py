@@ -237,11 +237,20 @@ def write_user_analytics(csv_file_path):
 
     rows = cursor.fetchall()
 
-    print(type(rows))
+    #print(type(rows))
 
         # 3. Loop through and print each row
-    for row in rows:
-        print(row)   
+    #for row in rows:
+        #print(row)
+
+    with open('csv_file_path', 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+    
+        # Write the header row
+        #writer.writerow(headers)
+    
+        # Write all data rows at once
+        writer.writerows(rows)   
 
 
     print("TODO: write_user_analytics")
