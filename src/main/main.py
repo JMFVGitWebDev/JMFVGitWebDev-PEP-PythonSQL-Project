@@ -237,6 +237,8 @@ def write_user_analytics(csv_file_path):
 
     rows = cursor.fetchall()
 
+    print(type(rows))
+
         # 3. Loop through and print each row
     for row in rows:
         print(row)   
