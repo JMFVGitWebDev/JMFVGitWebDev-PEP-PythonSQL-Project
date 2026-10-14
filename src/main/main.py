@@ -168,7 +168,7 @@ def load_and_clean_call_logs(file_path):
         VALUES ({', '.join(['?'] * len(callLogs_schema))})
         """
         #print(type(header))
-        header.insert(0, 'callID')
+        header.insert(0, 'callId')
 
         header_index_map = {name: idx for idx, name in enumerate(header)}
 
