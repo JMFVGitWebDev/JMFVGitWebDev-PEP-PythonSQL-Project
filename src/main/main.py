@@ -152,7 +152,7 @@ def load_and_clean_call_logs(file_path):
             print("The CSV file is empty.") #header = next(reader)  # Skip the header row if present
 
         clean_records = []
-        id_number = 0
+        id_number = 1
         for row in reader:
             # Discard records with missing columns or empty strings/None values
             if len(row) == len(header) and all(cell.strip() for cell in row):
