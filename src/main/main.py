@@ -133,9 +133,12 @@ def load_and_clean_call_logs(file_path):
 
     cursor.execute(f"PRAGMA table_info('callLogs');")
     columns = cursor.fetchall()
+    callLogs_schema = []
 
     for column in columns:
-        print(column)
+        callLogs_schema.append(column[1])
+
+    print(callLogs_schema)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
