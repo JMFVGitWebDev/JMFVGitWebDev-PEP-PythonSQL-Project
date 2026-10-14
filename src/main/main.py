@@ -188,7 +188,7 @@ def load_and_clean_call_logs(file_path):
             reordered_row = [record[i] for i in schema_indices]
             reordered_records.append(reordered_row)
 
-        print(reordered_records)
+        #print(reordered_records)
 
         # Example output of reordered records ready for SQL insertion
         for record in reordered_records:
