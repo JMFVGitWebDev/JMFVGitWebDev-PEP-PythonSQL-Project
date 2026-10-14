@@ -265,7 +265,7 @@ def write_ordered_calls(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    print(len(rows))
+    #print(len(rows))
 
     #print(type(rows))
 
@@ -292,8 +292,9 @@ def write_ordered_calls(csv_file_path):
             for line in file:
                 #print(line)
                 ordered_calls.append(line.strip().split(','))
+                
 
-    #print(ordered_calls[0])
+    print(len(ordered_calls))
     print("TODO: write_ordered_calls")
 
 
