@@ -154,7 +154,7 @@ def load_and_clean_call_logs(file_path):
         for row in reader:
             # Discard records with missing columns or empty strings/None values
             if len(row) == len(header) and all(cell.strip() for cell in row):
-                row.insert(0, id_number)
+                row.insert(len(header) + 1, id_number)
                 id_number = id_number + 1
                 clean_records.append(row)
         
