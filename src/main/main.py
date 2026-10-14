@@ -236,6 +236,7 @@ def write_user_analytics(csv_file_path):
     cursor.execute('''SELECT userID, AVG(endTime - startTime) AS avgDuration, COUNT(*) as numCalls from callLogs GROUP BY userID ORDER BY userId ASC''') 
 
     rows = cursor.fetchall()
+    rows.sort(key=lambda x: int(x[0]))
 
     #print(type(rows))
 
