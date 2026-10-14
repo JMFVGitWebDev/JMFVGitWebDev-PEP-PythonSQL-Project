@@ -179,8 +179,9 @@ def load_and_clean_call_logs(file_path):
         #print(callLogs_schema)
     
         for i, record in enumerate(clean_records):
-                if callLogs_fieldtypes[i] == 'INTEGER' and not isinstance(record[i], int):
-                    record[i] = int(record[i])
+            for j, field_value in enumerate(record):
+                if callLogs_fieldtypes[j] == 'INTEGER' and not isinstance(field_value, int):
+                    record[j] = int(record[j])
         
         # This raises a KeyError if a schema column is missing from the CSV
         schema_indices = [header_index_map[col] for col in callLogs_schema]
