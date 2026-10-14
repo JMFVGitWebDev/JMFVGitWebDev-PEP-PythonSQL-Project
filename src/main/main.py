@@ -142,7 +142,7 @@ def load_and_clean_call_logs(file_path):
     #print(callLogs_schema)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
-        reader = csv.reader(file)
+        reader = list(csv.reader(file))
         try:
             header = next(reader)
         except StopIteration:
