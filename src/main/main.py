@@ -96,6 +96,10 @@ def load_and_clean_users(file_path):
                     #print(item)
                     row.remove(item)
                     pass
+
+                if x == (len(row) - 1) and len(item) == 0:
+                    row.remove(item)
+                    pass
                 #if row[x] is None or len(row[x]) == 0:
                     #row.pop(x)
                 #print(row)
