@@ -253,7 +253,7 @@ def write_user_analytics(csv_file_path):
         #writer.writerows(rows)
     
         # Write all data rows at once
-        writer.writerow(rows)   
+        writer.writerows(rows)   
 
 
     print("TODO: write_user_analytics")
@@ -282,7 +282,7 @@ def write_ordered_calls(csv_file_path):
         #writer.writerows(rows)
     
         # Write all data rows at once
-        writer.writerow(rows) 
+        writer.writerows(rows) 
 
     print("TODO: write_ordered_calls")
 
