@@ -290,9 +290,10 @@ def write_ordered_calls(csv_file_path):
             next(file)
             # Read the contents of the file line by line, saving them to ordered_calls
             for line in file:
+                print(line)
                 ordered_calls.append(line.strip().split(','))
 
-    print(ordered_calls[0])
+    #print(ordered_calls[0])
     print("TODO: write_ordered_calls")
 
 
