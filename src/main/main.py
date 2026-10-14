@@ -90,8 +90,8 @@ def load_and_clean_users(file_path):
         #print(clean_records[0][0])
 
         for row in clean_records:
-            for item in row:
-                print(row[item])
+            for x, item in enumerate(row): #for item in row:
+                #print(row[item])
                 if isinstance(item, str) and "####" in item:
                     #print(item)
                     row.remove(item)
