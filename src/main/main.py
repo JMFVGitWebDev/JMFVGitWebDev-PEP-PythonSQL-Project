@@ -197,8 +197,8 @@ def load_and_clean_call_logs(file_path):
         #print(reordered_records)
 
         # Example output of reordered records ready for SQL insertion
-        for record in reordered_records:
-            print(record)
+        #for record in reordered_records:
+            #print(record)
 
         #records_to_insert = []
         #for row in reader:
@@ -266,7 +266,7 @@ def write_ordered_calls(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    #print(rows[0])
+    print(rows)
 
     #print(type(rows))
 
