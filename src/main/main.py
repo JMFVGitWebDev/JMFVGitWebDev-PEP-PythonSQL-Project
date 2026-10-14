@@ -141,7 +141,7 @@ def load_and_clean_call_logs(file_path):
         callLogs_fieldtypes.append(column[2])
         callLogs_schema.append(column[1])
 
-    #print(callLogs_fieldtypes)
+    print(callLogs_fieldtypes)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
