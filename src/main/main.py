@@ -94,7 +94,7 @@ def load_and_clean_users(file_path):
                 #print(x)
                 if row[x] is None or len(row[x]) == 0:
                     row.pop(x)
-                print(row)
+                #print(row)
                 #cursor.execute(insert_sql, row)
 
         #print(clean_records)
