@@ -91,8 +91,9 @@ def load_and_clean_users(file_path):
 
         for row in clean_records:
             for item in row:
-                if item == :
-                #print(x)
+                if item == "####":
+                    print(x)
+                    pass
                 #if row[x] is None or len(row[x]) == 0:
                     #row.pop(x)
                 #print(row)
