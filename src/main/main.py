@@ -245,7 +245,7 @@ def write_user_analytics(csv_file_path):
     #for row in rows:
         #print(row)
 
-    with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
+    with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
     
         # Write the header row
