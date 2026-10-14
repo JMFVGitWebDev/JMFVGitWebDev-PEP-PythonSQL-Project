@@ -92,7 +92,7 @@ def load_and_clean_users(file_path):
         for row in clean_records:
             for item in row:
                 print(row[item])
-                if "####" in item:
+                if "####" in row[item]:
                     print(item)
                     pass
                 #if row[x] is None or len(row[x]) == 0:
