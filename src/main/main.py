@@ -134,6 +134,7 @@ def load_and_clean_call_logs(file_path):
     cursor.execute(f"PRAGMA table_info('callLogs');")
     columns = cursor.fetchall()
     callLogs_schema = []
+    reordered_records = []
 
     for column in columns:
         callLogs_schema.append(column[1])
@@ -175,11 +176,11 @@ def load_and_clean_call_logs(file_path):
         print(header_index_map)
         print(callLogs_schema)
     
-        # 3. Get the indices corresponding to the target schema order
+        
         # This raises a KeyError if a schema column is missing from the CSV
         schema_indices = [header_index_map[col] for col in callLogs_schema]
     
-        # 4. Iterate through rows and reorder values to match the schema
+        #Iterate through rows and reorder values to match the schema
         for row in reader:
             # Reorder row elements based on the target schema
             reordered_row = [row[i] for i in schema_indices]
@@ -189,17 +190,17 @@ def load_and_clean_call_logs(file_path):
         for record in reordered_records:
             print(record)
 
-        records_to_insert = []
-        for row in reader:
+        #records_to_insert = []
+        #for row in reader:
             # Reorder row dictionary values to match table_schema
-            reordered_values = [row[col] for col in callLogs_schema]
-            records_to_insert.append(reordered_values)
+            #reordered_values = [row[col] for col in callLogs_schema]
+            #records_to_insert.append(reordered_values)
 
         #print(records_to_insert)
 
         # Execute bulk insert
-        cursor.executemany(insert_query, records_to_insert)
-        conn.commit()
+        #cursor.executemany(insert_query, records_to_insert)
+        #conn.commit()
 
         #print(insert_sql)
 
