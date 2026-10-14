@@ -90,10 +90,11 @@ def load_and_clean_users(file_path):
         #print(clean_records[0][0])
 
         for row in clean_records:
-            for x in range(len(row)):
+            for item in row:
+                if item is None or len(item) == 0:
                 #print(x)
-                if row[x] is None or len(row[x]) == 0:
-                    row.pop(x)
+                #if row[x] is None or len(row[x]) == 0:
+                    #row.pop(x)
                 #print(row)
                 #cursor.execute(insert_sql, row)
 
