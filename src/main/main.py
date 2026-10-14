@@ -237,6 +237,7 @@ def write_user_analytics(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
+    print(rows[0])
 
     #print(type(rows))
 
