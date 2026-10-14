@@ -93,14 +93,15 @@ def load_and_clean_users(file_path):
             for item in row:
                 #print(row[item])
                 if isinstance(item, str) and "####" in item:
-                    print(item)
+                    #print(item)
+                    row.remove(item)
                     pass
                 #if row[x] is None or len(row[x]) == 0:
                     #row.pop(x)
                 #print(row)
                 #cursor.execute(insert_sql, row)
 
-        #print(clean_records)
+        print(clean_records)
 
         cursor.execute('''SELECT * FROM users''') 
 
