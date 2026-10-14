@@ -141,7 +141,7 @@ def load_and_clean_call_logs(file_path):
         callLogs_fieldtypes.append(column[2])
         callLogs_schema.append(column[1])
 
-    print(callLogs_fieldtypes)
+    #print(callLogs_fieldtypes)
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -164,7 +164,7 @@ def load_and_clean_call_logs(file_path):
         # Create placeholders (?, ?, ...) based on column count
         placeholders = ', '.join(['?'] * (len(header) + 1))
         #cursor.executemany(f"INSERT INTO callLogs VALUES ({placeholders})", clean_records)
-        #insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
+        insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
 
         insert_query = f"""
         INSERT INTO callLogs ({', '.join(callLogs_schema)})
@@ -197,8 +197,8 @@ def load_and_clean_call_logs(file_path):
         #print(reordered_records)
 
         # Example output of reordered records ready for SQL insertion
-        for record in reordered_records:
-            print(record)
+        #for record in reordered_records:
+            #print(record)
 
         #records_to_insert = []
         #for row in reader:
@@ -209,8 +209,8 @@ def load_and_clean_call_logs(file_path):
         #print(records_to_insert)
 
         # Execute bulk insert
-        #cursor.executemany(insert_query, records_to_insert)
-        #conn.commit()
+        cursor.executemany(insert_sql, reordered_records)
+        conn.commit()
 
         #print(insert_sql)
 
