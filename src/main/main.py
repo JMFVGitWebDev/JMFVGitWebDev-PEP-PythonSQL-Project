@@ -298,7 +298,7 @@ def write_ordered_calls(csv_file_path):
                     break
                 
 
-    print(len(ordered_calls))
+    print(len(ordered_calls[0]))
     print("TODO: write_ordered_calls")
 
 
