@@ -91,7 +91,7 @@ def load_and_clean_users(file_path):
 
         for row in clean_records:
             for item in row:
-                if item == "####":
+                if "####" in item:
                     print(x)
                     pass
                 #if row[x] is None or len(row[x]) == 0:
@@ -99,7 +99,7 @@ def load_and_clean_users(file_path):
                 #print(row)
                 #cursor.execute(insert_sql, row)
 
-        print(clean_records)
+        #print(clean_records)
 
         cursor.execute('''SELECT * FROM users''') 
 
