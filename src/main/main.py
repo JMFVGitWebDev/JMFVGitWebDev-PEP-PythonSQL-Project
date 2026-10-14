@@ -150,7 +150,7 @@ def load_and_clean_call_logs(file_path):
         
         #print(len(clean_records))
         # Create placeholders (?, ?, ...) based on column count
-        placeholders = ', '.join(['?'] * len(header))
+        placeholders = ', '.join(['?'] * (len(header) + 1))
         #cursor.executemany(f"INSERT INTO callLogs VALUES ({placeholders})", clean_records)
         insert_sql = f"INSERT INTO callLogs VALUES ({placeholders})"
 
