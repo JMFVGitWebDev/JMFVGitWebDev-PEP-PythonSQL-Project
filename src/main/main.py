@@ -289,9 +289,13 @@ def write_ordered_calls(csv_file_path):
             # Skip the first line
             next(file)
             # Read the contents of the file line by line, saving them to ordered_calls
+            i = 0
             for line in file:
+                i = i + 1
                 #print(line)
                 ordered_calls.append(line.strip().split(','))
+                if i == len(rows):
+                    break
                 
 
     print(len(ordered_calls))
