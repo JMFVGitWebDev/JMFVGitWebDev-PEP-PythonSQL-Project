@@ -289,7 +289,7 @@ def write_ordered_calls(csv_file_path):
     #print(rows)
     for row in rows:
         #print(row)
-        print(f"User: {row['userId']} | Start: {row['startTime']}")
+        print(f"User: {row[5]} | Start: {row[2]}")
        
 
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
