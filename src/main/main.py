@@ -264,9 +264,9 @@ def write_user_analytics(csv_file_path):
         # Write all data rows at once
 
         for row in rows:
-            if row not in existing_rows:
+            #if row not in existing_rows:
             #print(row)
-                writer.writerow(row)   
+            writer.writerow(row)   
 
 
     print("TODO: write_user_analytics")
