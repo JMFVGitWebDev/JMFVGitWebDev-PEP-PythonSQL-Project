@@ -249,8 +249,8 @@ def write_user_analytics(csv_file_path):
     df = pd.DataFrame(rows)
     df.to_csv(csv_file_path, index=False)    
 
-    with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
+    #with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
+        #writer = csv.writer(f)
         # Write the header row
         #writer.writerow(headers)
         #writer.writerows(rows)
