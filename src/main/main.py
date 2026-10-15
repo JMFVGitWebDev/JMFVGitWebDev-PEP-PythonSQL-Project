@@ -1,6 +1,7 @@
 import csv
 import os
 import sqlite3
+import pandas as pd
 
 # Resolve the resources folder relative to this file, so paths work
 # no matter what directory the script is run from.
@@ -245,6 +246,9 @@ def write_user_analytics(csv_file_path):
     #for row in rows:
         #print(row)
 
+    df = pd.DataFrame(rows)
+    df.to_csv(csv_file_path, index=False)    
+
     with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         # Write the header row
@@ -255,7 +259,7 @@ def write_user_analytics(csv_file_path):
 
         for row in rows:
             #print(row)
-            writer.writerow(row)   
+            #writer.writerow(row)   
 
 
     print("TODO: write_user_analytics")
