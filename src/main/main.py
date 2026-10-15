@@ -296,7 +296,7 @@ def write_ordered_calls(csv_file_path):
 
     column_names = [description[0] for description in cursor.description]
 
-    print(column_names)
+    #print(column_names)
 
     
 
