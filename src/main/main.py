@@ -271,7 +271,7 @@ def write_user_analytics(csv_file_path):
 # This function will write the callLogs ordered by userId, then start time.
 # Then, write the ordered callLogs to orderedCalls.csv
 def write_ordered_calls(csv_file_path):
-    conn.commit()
+    conn.row_factory = sqlite3.Row 
     cursor.execute('''SELECT callId, userId from callLogs ORDER BY userId, startTime''') # ORDER BY CAST(userId AS INT)
     
 
