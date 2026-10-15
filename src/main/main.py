@@ -278,11 +278,17 @@ def write_ordered_calls(csv_file_path):
     rows.insert(0, ['callId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'userId'])
     #print(len(rows))
 
-    print(len(rows))
+    #print(len(rows))
 
-        # 3. Loop through and print each row
+    column_names = [description[0] for description in cursor.description]
+
+    print(column_names) 
+
+
     for row in rows:
         print(row)
+
+       
 
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
