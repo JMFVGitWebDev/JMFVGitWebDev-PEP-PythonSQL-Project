@@ -284,7 +284,7 @@ def write_ordered_calls(csv_file_path):
 
     print(column_names) 
 
-    print(rows[0])
+    print(type(rows))
     #for row in rows:
         #print(row)
 
