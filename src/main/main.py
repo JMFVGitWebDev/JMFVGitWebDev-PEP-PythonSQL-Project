@@ -246,20 +246,27 @@ def write_user_analytics(csv_file_path):
     #for row in rows:
         #print(row)
 
-    #print(rows[1][1])    
+    #print(rows[1][1])
+
+    existing_rows = []
+    if os.path.exists(csv_file_path):
+        with open(csv_file_path, mode='r', newline='', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            existing_rows = list(reader)    
    
 
     with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         # Write the header row
         #writer.writerow(headers)
-        writer.writerows(rows)
+        #writer.writerows(rows)
     
         # Write all data rows at once
 
         for row in rows:
-            print(row)
-            #writer.writerow(row)   
+            if row not in existing_rows:
+            #print(row)
+                writer.writerow(row)   
 
 
     print("TODO: write_user_analytics")
