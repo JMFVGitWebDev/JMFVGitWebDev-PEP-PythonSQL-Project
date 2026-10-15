@@ -238,7 +238,7 @@ def write_user_analytics(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    rows.insert(0, [['userId', 'avgDuration', 'numCalls']])
+    rows.insert(0, ['userId', 'avgDuration', 'numCalls'])
     #print(rows[1])
 
     #print(type(rows))
