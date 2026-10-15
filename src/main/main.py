@@ -246,7 +246,7 @@ def write_user_analytics(csv_file_path):
     #for row in rows:
         #print(row)
 
-    print(rows[1][1])    
+    #print(rows[1][1])    
    
 
     with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
@@ -257,8 +257,8 @@ def write_user_analytics(csv_file_path):
     
         # Write all data rows at once
 
-        #for row in rows:
-            #print(row)
+        for row in rows:
+            print(row)
             #writer.writerow(row)   
 
 
