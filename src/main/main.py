@@ -208,9 +208,9 @@ def load_and_clean_call_logs(file_path):
             #records_to_insert.append(reordered_values)
 
         #print(records_to_insert)
-        print(header)
-        for record in reordered_records:
-            print(record)
+        #print(header)
+        #for record in reordered_records:
+            #print(record)
         # Execute bulk insert
         cursor.executemany(insert_sql, reordered_records)
         conn.commit()
@@ -246,8 +246,8 @@ def write_user_analytics(csv_file_path):
     #print(type(rows))
 
         # 3. Loop through and print each row
-    #for row in rows:
-        #print(row)
+    for row in rows:
+        print(row)
 
     #print(rows[1][1])  
    
@@ -281,8 +281,8 @@ def write_ordered_calls(csv_file_path):
     #print(type(rows))
 
         # 3. Loop through and print each row
-    #for row in rows:
-        #print(row)
+    for row in rows:
+        print(row)
 
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
