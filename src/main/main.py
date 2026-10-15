@@ -209,7 +209,7 @@ def load_and_clean_call_logs(file_path):
 
         #print(records_to_insert)
         print(header)
-        for record in clean_records:
+        for record in reordered_records:
             print(record)
         # Execute bulk insert
         cursor.executemany(insert_sql, reordered_records)
