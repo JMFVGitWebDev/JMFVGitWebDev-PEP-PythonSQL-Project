@@ -245,6 +245,8 @@ def write_user_analytics(csv_file_path):
         # 3. Loop through and print each row
     #for row in rows:
         #print(row)
+
+    print(rows.sort(key=lambda x: int(x[0]))    
    
 
     with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
