@@ -277,7 +277,7 @@ def write_ordered_calls(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    sorted_by_userId = sorted(rows, key=lambda x: x[5])
+    sorted_by_userId = sorted(rows, key=lambda x: (x[5], x[2]))
 
     sorted_rows = []
 
