@@ -273,6 +273,7 @@ def write_ordered_calls(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
+    rows.insert(0, ['callId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'userId'])
     #print(len(rows))
 
     #print(type(rows))
@@ -281,7 +282,7 @@ def write_ordered_calls(csv_file_path):
     #for row in rows:
         #print(row)
 
-    with open(csv_file_path, 'a', newline='', encoding='utf-8') as f:
+    with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
     
         # Write the header row
@@ -291,19 +292,6 @@ def write_ordered_calls(csv_file_path):
         # Write all data rows at once
         writer.writerows(rows)
 
-    ordered_calls = []
-
-    with open(csv_file_path, 'r') as file:
-            # Skip the first line
-            next(file)
-            # Read the contents of the file line by line, saving them to ordered_calls
-            i = 0
-            for line in file:
-                i = i + 1
-                #print(line)
-                ordered_calls.append(line.strip().split(','))
-                #if i == len(rows):
-                   # break
                 
 
     #print(ordered_calls)
