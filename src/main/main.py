@@ -284,12 +284,17 @@ def write_ordered_calls(csv_file_path):
 
     column_names = [description[0] for description in cursor.description]
 
-    print(column_names) 
+    print(column_names)
+
+    sorted_by_userId = sorted(rows, key=lambda x: x[5])
+
+    for row in sorted_by_userId:
+        print(row) 
 
     #print(rows)
-    for row in rows:
+    #for row in rows:
         #print(row)
-        print(f"User: {row[5]} | Start: {row[2]}")
+        #print(f"User: {row[5]} | Start: {row[2]}")
        
 
     with open(csv_file_path, 'w', newline='', encoding='utf-8') as f:
