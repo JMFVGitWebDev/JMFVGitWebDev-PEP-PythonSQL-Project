@@ -275,7 +275,7 @@ def write_ordered_calls(csv_file_path):
 
     rows = cursor.fetchall()
     rows.sort(key=lambda x: int(x[0]))
-    rows.insert(0, ['userId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'callId'])
+    rows.insert(0, ['callId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'userId'])
     #print(len(rows))
 
     print(len(rows))

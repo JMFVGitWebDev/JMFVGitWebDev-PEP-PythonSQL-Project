@@ -1,4 +1,4 @@
-userId,phoneNumber,startTime,endTime,direction,callId
+callId,phoneNumber,startTime,endTime,direction,userId
 1,456-789-0123,1659605850,1659605900,outbound,4
 2,567-890-1234,1659605900,1659606000,inbound,2
 3,456-789-0123,1659605340,1659605400,inbound,4
