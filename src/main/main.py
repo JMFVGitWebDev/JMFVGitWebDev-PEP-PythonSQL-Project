@@ -246,8 +246,8 @@ def write_user_analytics(csv_file_path):
     #print(type(rows))
 
         # 3. Loop through and print each row
-    for row in rows:
-        print(row)
+    #for row in rows:
+        #print(row)
 
     #print(rows[1][1])  
    
