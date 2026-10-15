@@ -289,8 +289,8 @@ def write_ordered_calls(csv_file_path):
     sorted_rows.insert(0, ['callId', 'phoneNumber', 'startTime', 'endTime', 'direction', 'userId'])
     #print(len(rows))
 
-    for row in sorted_rows:
-        print(row)
+    #for row in sorted_rows:
+        #print(row)
 
     #print(len(rows))
 
@@ -314,7 +314,7 @@ def write_ordered_calls(csv_file_path):
         #writer.writerows(rows)
     
         # Write all data rows at once
-        writer.writerows(rows)
+        writer.writerows(sorted_rows)
 
                 
 
