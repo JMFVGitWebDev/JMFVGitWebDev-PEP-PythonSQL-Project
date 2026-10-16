@@ -57,7 +57,7 @@ def load_and_clean_users(file_path):
 
     #print(file_path)
 
-    with open('/home/ubuntu/JMFVGitWebDev-PEP-PythonSQL-Project/resources/users.csv', mode='r', encoding='utf-8') as file:
+    with open(file_path, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
         try:
             header = next(reader)
@@ -69,7 +69,7 @@ def load_and_clean_users(file_path):
         id_number = 0
         for row in reader:
             # Discard records with missing columns or empty strings/None values
-            if len(row) != len(header) or (not(all(cell.strip() for cell in row))):
+            if len(row) = len(header) and all(cell.strip() for cell in row):
                 row.insert(0, id_number)
                 id_number = id_number + 1
                 clean_records.append(row)
@@ -90,7 +90,7 @@ def load_and_clean_users(file_path):
 
         #print(clean_records[0][0])
 
-        for row in clean_records:
+        '''for row in clean_records:
             for x, item in enumerate(row): #for item in row:
                 #print(row[item])
                 if isinstance(item, str) and "####" in item:
@@ -105,12 +105,12 @@ def load_and_clean_users(file_path):
                     #row.pop(x)
                 #print(row)
                 #cursor.execute(insert_sql, row)
-
+        '''
         for row in clean_records:
             cursor.execute(insert_sql, row)
         #print(clean_records)
 
-        cursor.execute('''SELECT * FROM users''') 
+        """cursor.execute('''SELECT * FROM users''') 
 
         results = cursor.fetchall()
         num_records = len(results)
@@ -122,7 +122,7 @@ def load_and_clean_users(file_path):
         #for row in rows:
             #print(row)   
 
-    # Commit changes and close the connection
+    # Commit changes and close the connection"""
     conn.commit()
     #conn.close()
 
